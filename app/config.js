@@ -3,17 +3,17 @@ function config($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('index', {
             url: "/index",
-            templateUrl: "views/index.html",
+            templateUrl: "app/index.html",
             data: { pageTitle: 'index' }
         })
         .state('pages', {
             abstract: true,
             url: "/pages",
-            templateUrl: "views/common.html",
+            templateUrl: "app/common.html",
         })
         .state('pages.blank_page', {
             url: "/blank_page",
-            templateUrl: "views/blank-page.html",
+            templateUrl: "app/blank-page.html",
             data: { pageTitle: 'Blank page' }
         })
          .state('pages.blank_page2', {
