@@ -96,7 +96,7 @@ function navToggleSub() {
  * Pass functions to module
  */
 angular
-    .module('neuboard')
+    .module('minerva')
     .directive('pageTitle', pageTitle)
     .directive('toggleLeftSidebar', toggleLeftSidebar)
     .directive('toggleProfile', toggleProfile)

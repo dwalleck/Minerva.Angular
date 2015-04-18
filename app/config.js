@@ -23,7 +23,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
 }
 angular
-    .module('neuboard')
+    .module('minerva')
     .config(config)
     .run(function($rootScope, $state) {
         $rootScope.$state = $state;
