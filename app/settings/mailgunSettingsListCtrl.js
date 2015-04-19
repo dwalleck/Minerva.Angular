@@ -4,26 +4,15 @@
     angular
         .module('minerva')
         .controller('MailgunSettingsListCtrl',
-                     MailgunSettingsListCtrl)
+                     ['mailgunSettingsResource',
+                         MailgunSettingsListCtrl])
 
-    function MailgunSettingsListCtrl($scope) {
+    function MailgunSettingsListCtrl(mailgunSettingsResource) {
         var vm = this;
 
-        /*mailgunSettingsResource.query(function (data) {
+        mailgunSettingsResource.query(function (data) {
             vm.mailgunSettings = data;
-        });*/
+        });
 
-        vm.mailgunSettings = [
-        {
-            "name": "test",
-            "api_url": "Leaf Rake",
-            "api_key": "GDN-0011",
-        },
-        {
-            "name": "test2",
-            "api_url": "Garden Cart",
-            "api_key": "GDN-0023",
-        },
-        ];
     }
 }());
