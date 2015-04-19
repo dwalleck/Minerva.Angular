@@ -46,6 +46,16 @@ function config($stateProvider, $urlRouterProvider) {
         templateUrl: "views/resource-usage.html",
         data: { pageTitle: 'Resource Usage' }
     })
+    .state('settings', {
+        abstract: true,
+        url: "/settings",
+        templateUrl: "app/common.html",
+    })
+    .state('settings.mailgunSettings', {
+        url: "/mailgunSettings",
+        templateUrl: "app/settings/mailgunSettingsListView.html",
+        data: { pageTitle: 'Mailgun Settings' }
+    })
 }
 angular
     .module('minerva')

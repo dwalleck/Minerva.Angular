@@ -1,0 +1,36 @@
+﻿<div class="pageheader">
+    <h2>Mailgun Settings</h2>
+    <p class="description">Blank starter page</p>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li class="active">Mailgun Settings</li>
+        </ol>
+    </div>
+</div>
+ <section id="main-content" ng-controller="MailgunSettingsListCtrl as vm">
+    <div class="panel panel-primary">
+
+        <div class="panel-body">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>API Url</td>
+                        <td>API Key</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="setting in vm.mailgunSettings">
+                        <td>{{ setting.name}}</td>
+                        <td>{{ setting.api_url }}</td>
+                        <td>{{ setting.api_key }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
