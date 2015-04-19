@@ -7,7 +7,7 @@
         </ol>
     </div>
 </div>
-<section id="main-content" ng-controller="IssuesSummaryCtrl as vm">
+<section id="main-content" ng-controller="IssuesSummaryCtrl">
     <div class="row">
         <div class="col-md-12 col-lg-6">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
@@ -27,7 +27,7 @@
                                 </ul>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <div id="doughnut-canvas-holder" ng-controller="chartJsDoughnutCtrl">
+                                <div id="doughnut-canvas-holder">
                                     <canvas tc-chartjs-doughnut chart-options="options" chart-data="data" width="137" height="137"></canvas>
                                 </div>
                             </div>
