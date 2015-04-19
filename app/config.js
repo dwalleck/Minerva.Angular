@@ -9,7 +9,7 @@ function config($stateProvider, $urlRouterProvider) {
     .state('reports', {
         abstract: true,
         url: "/reports",
-        templateUrl: "views/common.html",
+        templateUrl: "app/common.html",
     })
     .state('reports.instance_faults', {
         url: "/instance_faults",
@@ -23,13 +23,13 @@ function config($stateProvider, $urlRouterProvider) {
     })
     .state('reports.issues', {
         url: "/issues",
-        templateUrl: "views/issues.html",
+        templateUrl: "app/issues/issuesSummaryView.html",
         data: { pageTitle: 'Issues' }
     })
     .state('cafe', {
         abstract: true,
         url: "/cafe",
-        templateUrl: "views/common.html",
+        templateUrl: "app/common.html",
     })
     .state('cafe.accounts', {
         url: "/accounts",
