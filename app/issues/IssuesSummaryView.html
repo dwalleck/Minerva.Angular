@@ -7,23 +7,62 @@
         </ol>
     </div>
 </div>
-<section id="main-content" ng-controller="IssuesSummaryCtrl">
+<section id="main-content" ng-controller="IssuesSummaryCtrl as vm">
     <div class="row">
         <div class="col-md-12 col-lg-6">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-solid-danger widget-mini">
+                        <div class="panel-body">
+                            <i class="icon-fire"></i>
+                            <span class="total text-center">200</span>
+                            <span class="title text-center">Open Issues</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel widget-mini">
+                        <div class="panel-body">
+                            <i class="icon-calendar"></i>
+                            <span class="total text-center">230</span>
+                            <span class="title text-center">Average Issue Age</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel widget-mini">
+                        <div class="panel-body">
+                            <i class="icon-envelope-open"></i>
+                            <span class="total text-center">1,680</span>
+                            <span class="title text-center">Messages</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-solid-info widget-mini">
+                        <div class="panel-body">
+                            <i class="icon-user"></i>
+                            <span class="total text-center">12,680</span>
+                            <span class="title text-center">Signups</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div>
                 <div class="panel panel-default  browser-chart">
                     <div class="panel-heading">
-                        <h3 class="panel-title">BROWSER STATS</h3>
+                        <h3 class="panel-title">ISSUES BY PRIORITY</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                 <ul>
-                                    <li><i class="fa fa-circle success-color"></i> Chrome</li>
-                                    <li><i class="fa fa-circle primary-color"></i> Internet Explorer</li>
-                                    <li><i class="fa fa-circle warning-color"></i> Safari</li>
-                                    <li><i class="fa fa-circle info-color"></i> Firefox</li>
-                                    <li><i class="fa fa-circle default-color"></i> Other</li>
+                                    <li><i class="fa fa-circle danger-color"></i> Critical</li>
+                                    <li><i class="fa fa-circle warning-color"></i> High</li>
+                                    <li><i class="fa fa-circle success-color"></i> Normal</li>
+                                    <li><i class="fa fa-circle info-color"></i> Low</li>
                                 </ul>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -33,6 +72,67 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Open Issues Over Time</h3>
+                        <div class="actions pull-right">
+                            <i data-fullscreen-widget class="fa fa-expand"></i>
+                            <i data-widget-toggle class="fa fa-chevron-down"></i>
+                            <i data-widget-close class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="line-chart">
+                            <div>
+                                <canvas tc-chartjs-line chart-options="lineOptions" chart-data="lineData" auto-legend height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Ready for Test</h3>
+                    <div class="actions pull-right">
+                        <i data-fullscreen-widget class="fa fa-expand"></i>
+                        <i data-widget-toggle class="fa fa-chevron-down"></i>
+                        <i data-widget-close class="fa fa-times"></i>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Issue #</th>
+                                <th>Description</th>
+                                <th>Priority</th>
+                                <th>Assignee</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Create server fails</td>
+                                <td>Critical</td>
+                                <td>Daryl</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>I hate this dashboard</td>
+                                <td>Critical</td>
+                                <td>Jose</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

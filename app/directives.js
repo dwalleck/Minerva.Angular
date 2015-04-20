@@ -19,13 +19,41 @@ function pageTitle($rootScope, $timeout) {
     return {
         link: function (scope, element) {
             var listener = function(event, toState, toParams, fromState, fromParams) {
-                var title = 'NeuBoard - Responsive Admin Theme';
-                if (toState.data && toState.data.pageTitle) title = 'NeuBoard | ' + toState.data.pageTitle;
+                var title = 'Minerva';
+                if (toState.data && toState.data.pageTitle) title = 'Minerva | ' + toState.data.pageTitle;
                 $timeout(function() {
                     element.text(title);
                 });
             };
             $rootScope.$on('$stateChangeStart', listener);
+        }
+    }
+};
+
+/**
+ * @widgetToggle - Directive to toggle widget
+ */
+function widgetToggle() {
+    return {
+        restrict: 'A',
+        link: function (scope, element) {
+            element.click(function () {
+                $(this).parent().parent().next().slideToggle("fast"), $(this).toggleClass("fa-chevron-down fa-chevron-up")
+            });
+        }
+    }
+};
+
+/**
+ * @widgetClose - Directive to close widget
+ */
+function widgetClose() {
+    return {
+        restrict: 'A',
+        link: function (scope, element) {
+            element.click(function () {
+                $(this).parent().parent().parent().fadeOut()
+            });
         }
     }
 };
@@ -92,6 +120,42 @@ function navToggleSub() {
     };
 };
 
+/**
+ * @fullscreenMode - Directive for fullscreen browsers
+ */
+
+function fullscreenMode() {
+    return {
+        restrict: 'A',
+        template: '<button ng-click="toggleFullscreen()" type="button" class="btn btn-default expand" id="toggle-fullscreen"><i class="fa fa-expand"></i></button>',
+        controller: function ($scope, $element) {
+            $scope.toggleFullscreen = function () {
+                $(document).toggleFullScreen()
+                $('#toggle-fullscreen .fa').toggleClass('fa-expand fa-compress');
+            }
+        }
+    };
+};
+
+/**
+ * @fullscreenWidget - Directive for fullscreen widgets
+ */
+
+function fullscreenWidget() {
+    return {
+        restrict: 'A',
+        link: function (scope, element) {
+            element.click(function () {
+                var panel = $(this).closest('.panel');
+                panel.toggleClass('widget-fullscreen');
+                $(this).toggleClass('fa-expand fa-compress');
+                $('body').toggleClass('fullscreen-widget-active')
+
+            });
+        }
+    }
+};
+
 /*
  * Pass functions to module
  */
@@ -102,3 +166,7 @@ angular
     .directive('toggleProfile', toggleProfile)
     .directive('toggleRightSidebar', toggleRightSidebar)
     .directive('navToggleSub', navToggleSub)
+    .directive('widgetToggle', widgetToggle)
+    .directive('widgetClose', widgetClose)
+    .directive('fullscreenMode', fullscreenMode)
+    .directive('fullscreenWidget', fullscreenWidget)
