@@ -1,0 +1,57 @@
+﻿<div class="pageheader">
+    <h2>Application Errors</h2>
+    <p class="description">Daily summary of errors and exceptions raised by Nova and related components</p>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li class="active">Application Errors</li>
+        </ol>
+    </div>
+</div>
+<section id="main-content" ng-controller="ApplicationErrorsListCtrl as vm">
+    <div class="row">
+        <div class="form-group col-md-2">
+            <label> Report Date </label>
+            <select class="form-control" id="reportDate">
+                <option value="">4/19/2015</option>
+                <option value="">4/18/2015</option>
+                <option value="">4/17/2015</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-lg-8">
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Summary of Errors</h3>
+                        <div class="actions pull-right">
+                            <i data-fullscreen-widget class="fa fa-expand"></i>
+                            <i data-widget-toggle class="fa fa-chevron-down"></i>
+                            <i data-widget-close class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                        <table class="table">
+
+                            <thead>
+                                <tr>
+                                    <td>Message</td>
+                                    <td>Log</td>
+                                    <td>Count</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="error in vm.errors">
+                                    <td>{{ error.message }}</td>
+                                    <td>{{ error.log }}</td>
+                                    <td>{{ error.count }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

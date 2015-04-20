@@ -18,7 +18,7 @@ function config($stateProvider, $urlRouterProvider) {
     })
     .state('reports.app_errors', {
         url: "/app_errors",
-        templateUrl: "views/app-errors.html",
+        templateUrl: "app/applicationErrors/applicationErrorsListView.html",
         data: { pageTitle: 'Application Errors' }
     })
     .state('reports.issues', {
