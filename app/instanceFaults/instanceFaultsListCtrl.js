@@ -4,30 +4,15 @@
     angular
         .module('minerva')
         .controller('InstanceFaultsListCtrl',
-                     [InstanceFaultsListCtrl])
+                     ['instanceFaultReportsResource',
+                         InstanceFaultsListCtrl])
 
-    function InstanceFaultsListCtrl() {
+    function InstanceFaultsListCtrl(instanceFaultReportsResource) {
         var vm = this;
 
-        vm.faults = [{
-            name: "['HANDLE_INVALID', 'VM', 'OpaqueRef<uuid>]",
-            count: 14
-        }, {
-            name: "No valid host was found. Exceeded max scheduling attempts 3 for instance<uuid> Last exception: ['Traceback (most recent call last):\n', ' File \"/opt/rackstack/rackstack.228.11/nova/lib/python2.7/site-packages/nova/compute/\"",
-            count: 7
-        }, {
-            name: "Migration pre-check error: Migrate Receive failed",
-            count: 2
-        }, {
-            name: "Connection to neutron failed: ('Connection aborted.', BadStatusLine(\"''\",)) ",
-            count: 2
-        }, {
-            name: "Instance<uuid>cannot be rescued: Driver Error: ['HANDLE_INVALID', 'VM', 'OpaqueRef<uuid>]",
-            count: 1
-        }, {
-            name: "Unexpected task state: expecting ['rebuilding'] but the actual state is deleting",
-            count: 1
-        }];
+        instanceFaultReportsResource.query(function (data) {
+            vm.faults = data;
+        });
 
         vm.faultsByHost = [{
             name: "c-10-13-139-8",

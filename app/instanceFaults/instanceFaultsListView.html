@@ -12,10 +12,8 @@
     <div class="row">
         <div class="form-group col-md-2">
             <label> Report Date </label> 
-            <select class="form-control" id="reportDate">
-                <option value="">4/19/2015</option>
-                <option value="">4/18/2015</option>
-                <option value="">4/17/2015</option>
+            <select class="form-control" id="reportDate" ng-model="report" ng-options="report.report_date for report in vm.faults">
+                <option value="">Select Date</option>
             </select>
         </div>
     </div>
@@ -41,9 +39,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="fault in vm.faults">
-                                    <td>{{ fault.name }}</td>
-                                    <td>{{ fault.count }}</td>
+                                <tr ng-repeat="fault in report.fault_summaries">
+                                    <td>{{ fault.normalized_fault }}</td>
+                                    <td>{{ fault.number_of_faults }}</td>
                                 </tr>
                             </tbody>
                         </table>
